@@ -1,6 +1,42 @@
 {% extends 'partials/base.html' %}
 {% block title %} Home {% endblock title %}
 {% block content %}
-<h1>Hello</h1>
+<div class="index" style="max-width: 1280px; margin: 0 auto; margin-top: 50px;">
+    <div class="box has-text-centered">
+        <h1 class="is-size-3"> Welcome to Solve-A-Murder!</h1>
+        <p>Your unsolved murders codex</p>
+        <hr>
+        <ul>
+            <li><span class="has-text-info has-text-weight-bold is-size-5">1457</span></li>
+            <li class="has-text-weight-bold"> unsolved murders</li>
+            <li><span class="has-text-danger has-text-weight-bold is-size-5">2432</span> </li>
+            <li class="has-text-weight-bold">confirmed victims</li>
+            <li><span class="has-text-success has-text-weight-bold is-size-5">132</span> </li>
+            <li class="has-text-weight-bold">users contributing to this site</li>
+
+        </ul>
+    </div>
+
+
+    <p class="has-text-centered is-size-4">Last Messages</p>
+
+    <article class="message is-dark">
+        <div class="message-header">
+            <p>New Something - 24/04/2022 - 17:02</p>
+        </div>
+        <div class="message-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+            placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
+            dictum
+            <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu
+            et
+            sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula
+            et
+            sem eget, facilisis sodales sem.
+        </div>
+    </article>
+
+
+</div>
 
 {% endblock content %}
