@@ -1,0 +1,31 @@
+{% extends 'partials/base.html' %}
+{% block title %} Victims {% endblock title %}
+{% block content %}
+
+<div class="victims">
+    <table class="table has-text-centered" style="max-width: 1280px; margin: 0 auto; margin-top: 50px;">
+        <thead class="has-text-centered">
+            <th class="has-text-centered">Victim's Name</th>
+            <th class="has-text-centered">Country</th>
+            <th class="has-text-centered">Date of Birth</th>
+            <th class="has-text-centered">Date of Death</th>
+            <th class="has-text-centered">Cause of Death</th>
+            <th class="has-text-centered">Main Suspect</th>
+        </thead>
+        <tbody>
+            {% for victim in victims %}
+            <tr class="has-text-centered">
+                <td>{{ victim.name }}</td>
+                <td>{{ victim.country }}</td>
+                <td>{{ victim.date_of_birth }}</td>
+                <td>{{ victim.date_of_death }}</td>
+                <td>{{ victim.cause_of_death }}</td>
+                <td>{{ victim.main_suspect }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock content %}
