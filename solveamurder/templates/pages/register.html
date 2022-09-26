@@ -1,0 +1,35 @@
+{% extends 'partials/base.html' %}
+{% block title %} Register {% endblock title %}
+{% block content %}
+
+<div class="form-control">
+    <form action="" method="post" style="max-width: 1000px; margin: 0 auto; margin-top: 40px;">
+        {% csrf_token %}
+        <h1 class="has-text-centered is-size-4">Register</h1>
+
+        <label for="">E-Mail:</label>
+        <input class="input is-link" type="email" placeholder="abcdef@email.com" name="email">
+
+        <label for="">Username:</label>
+        <input class="input is-link" type="text" placeholder="CoolUsername1999" name="username">
+
+        <label for="">Password:</label>
+        <input class="input is-link" type="password" placeholder="A Good Secret" name="password1">
+
+        <label for="">Confirm Password:</label>
+        <input class="input is-link" type="password" placeholder="Confirm the good secret" name="password2">
+
+        {% if form.errors %}
+        {% for field in form   %}
+        {% for error in field.errors   %}
+        <p style="color: red;">{{ error|escape }}</p>
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+
+        <button class="button is-link mt-4" type="submit">Confirm</button>
+    </form>
+</div>
+
+
+{% endblock content %}

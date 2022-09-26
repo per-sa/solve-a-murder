@@ -28,18 +28,21 @@
                 {% if user.is_authenticated %}
                 <div class="buttons">
 
-                    <p class="mr-2"> <i class="fa-solid fa-user"></i> {{ user }}</p>
-                    <a class="button is-primary">
+
+                    <img src="{{user.profile.avatar.url}}" style="margin-right: 5px" alt="avatar">
+                    <p class="mr-2">
+                        {{ user }}</p>
+                    <a class="button is-primary" href="{% url 'profile' %}">
                         <strong>Profile</strong>
                     </a>
                     <a class="button is-light" href="{% url 'logout' %}"> Log Out </a>
                 </div>
                 {% else %}
                 <div class="buttons">
-                    <a class="button is-primary">
+                    <a class="button is-primary" href="{% url 'register' %}">
                         <strong>Sign up</strong>
                     </a>
-                    <a class="button is-light"> Log in </a>
+                    <a class="button is-light" href="{% url 'login' %}"> Log in </a>
                 </div>
                 {% endif %}
             </div>

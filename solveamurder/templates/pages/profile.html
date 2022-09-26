@@ -1,0 +1,46 @@
+{% extends 'partials/base.html' %}
+{% block title %} Profile {% endblock title %}
+{% block content %}
+
+<div class="form-control">
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="card" style="max-width: 1000px; margin: 0 auto; margin-top: 50px;">
+
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-96x96">
+                            <img src="{{ user.profile.avatar.url }}" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">{{user}}</p>
+                        <input type="file" name="avatar" style=" height: auto;">
+                    </div>
+                </div>
+
+                <div class="content">
+                    <p>Current Status:</p>
+                    <p class="has-text-info is-size-4">{{ user.profile.status }}</p>
+                    <p>Edit Status:</p>
+                    <input class="input is-link" type="text" placeholder="Something Interesting" name="status">
+                </div>
+
+                {% if form.errors %}
+                {% for field in form   %}
+                {% for error in field.errors   %}
+                <p style=" color: red;">{{ error|escape }}</p>
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+
+                <button class="button is-link mt-4" type="submit">Update Profile</button>
+
+            </div>
+        </div>
+
+    </form>
+</div>
+
+{% endblock content %}
