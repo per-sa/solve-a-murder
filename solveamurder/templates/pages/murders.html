@@ -1,0 +1,33 @@
+{% extends 'partials/base.html' %}
+{% block title %} cases {% endblock title %}
+{% block content %}
+
+<div class="cases">
+    <table class="table has-text-centered" style="max-width: 1000px; margin: 0 auto; margin-top: 50px;">
+        <thead class="has-text-centered">
+            <th class="has-text-centered">Case</th>
+            <th class="has-text-centered">Description</th>
+            <th class="has-text-centered">Date</th>
+            <th class="has-text-centered">Victims</th>
+            <th class="has-text-centered">Main Suspect</th>
+        </thead>
+        <tbody>
+            {% for case in cases %}
+            <tr class="has-text-centered">
+                <td><a href="{% url 'murder_info' case.pk %}">{{ case.case_name }}</a></td>
+                <td>{{ case.case_description|truncatechars:100 }}</td>
+                <td>{{ case.case_date }}</td>
+                <td>{% for i in case.case_victims.all %}
+                    <a href="{% url 'victim_info' i.pk %}">{{ i }}</a>
+                    {% endfor %}
+                </td>
+                <td> <a href="{% url 'suspect_info' case.case_main_suspect.pk %}">{{ case.case_main_suspect }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{{ cases.case_victims }}
+
+{% endblock content %}

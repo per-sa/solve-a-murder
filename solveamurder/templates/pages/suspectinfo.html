@@ -1,0 +1,32 @@
+{% extends 'partials/base.html' %}
+{% block title %} {{ suspect.name }} {% endblock title %}
+{% block content %}
+<div class="card" style="max-width: 1000px; margin: 0 auto; margin-top: 50px;">
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-48x48">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="media-content">
+                <p class="title is-4">{{ suspect.name }}</p>
+                <p class="subtitle is-6">{{ suspect.date_of_birth }}</p>
+            </div>
+        </div>
+
+        <div class="content">
+
+
+            <p class="has-text-weight-bold"> Cases involved:</p>
+            {% for i in murder.case_victims.all %}
+            <a href="{% url 'victim_info' i.pk %}">{{ i }}</a>
+            <br>
+            {% endfor %}
+            <br>
+
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

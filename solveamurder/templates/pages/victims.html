@@ -15,12 +15,12 @@
         <tbody>
             {% for victim in victims %}
             <tr class="has-text-centered">
-                <td>{{ victim.name }}</td>
+                <td><a href="{% url 'victim_info' victim.pk %}">{{ victim.name }}</a></td>
                 <td>{{ victim.country }}</td>
                 <td>{{ victim.date_of_birth }}</td>
                 <td>{{ victim.date_of_death }}</td>
                 <td>{{ victim.cause_of_death }}</td>
-                <td>{{ victim.main_suspect }}</td>
+                <td><a href="{% url 'murder_info' victim.main_suspect.pk %}">{{ victim.main_suspect }}</a></td>
             </tr>
             {% endfor %}
         </tbody>

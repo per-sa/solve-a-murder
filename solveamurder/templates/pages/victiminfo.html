@@ -1,0 +1,27 @@
+{% extends 'partials/base.html' %}
+{% block title %} {{ victim.name }} {% endblock title %}
+{% block content %}
+<div class="card" style="max-width: 1000px; margin: 0 auto; margin-top: 50px;">
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-48x48">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="media-content">
+                <p class="title is-4">{{ victim.name }}</p>
+                <p class="subtitle is-6">{{ victim.country }} | {{ victim.date_of_birth }} -
+                    {{ victim.date_of_death }}</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <p class="has-text-weight-bold">Cause of death:</p>
+            <p> {{ victim.cause_of_death }}</p>
+            <p class="has-text-weight-bold"> Main Suspect:</p>
+            <p>{{ victim.main_suspect }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
